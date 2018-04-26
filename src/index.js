@@ -5,13 +5,24 @@ import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
 import { combineReducers } from 'redux';
+import { users } from './users.js';
 
 const findStatus = (email) => {
-    return 'cut';
+    var name = email.substring(0, email.lastIndexOf("@"));
+    var domain = email.substring(email.lastIndexOf("@") +1);
+    if (domain !== "g.rit.edu") {
+        return 0;
+    } else if (users.members.includes(name)) {
+        return 1;
+    } else if (users.admins.includes(name)) {
+        return 2;
+    } else {
+        return 0;
+    }
 }
 
 //reducer current loggedin user
-const currentUser = (state = null, action) => {
+const currentUser = (state = {'email': null, 'status': 0}, action) => {
     switch (action.type) {
         case 'UPDATE_USER':
             var email = action.email;
@@ -26,9 +37,7 @@ const currentUser = (state = null, action) => {
 }
 
 //reducer for the banner
-const initialMessage = <div>Welcome to BallIsLife</div>
-
-const banners = (state = [{'message': initialMessage, 'type': 'alert-info'}], action) => {
+const banners = (state = [], action) => {
     switch (action.type) {
         case 'ADD_BANNER':
             return state.concat({'message': action.message, 'type': action.kind});

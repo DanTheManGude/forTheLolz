@@ -13,11 +13,22 @@ export function GoogleLogin(){
             type: 'UPDATE_USER',
             email: result.user.email
         });
-        var message = "Welcome " + result.user.email + " you are " + store.getState().currentUser.status;
+        var title;
+        switch (store.getState().currentUser.status) {
+            case 1:
+                title = "a member."
+                break;
+            case 2:
+                title = "an admin."
+                break;
+            default:
+                title = "not a member."
+        }
+        var message = "Welcome " + result.user.email + " you are " + title;
             store.dispatch({
                 type: 'ADD_BANNER',
                 message: message,
-                'kind': 'alert-warning'
+                'kind': 'alert-info'
             });
     }).catch(function(error) {
         store.dispatch({
