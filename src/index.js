@@ -17,8 +17,7 @@ const currentUser = (state = null, action) => {
 }
 
 //reducer for the banner
-const initialMessage = <div>Welcome to a boilerplate including React, Redux, Bootstrap, Firebase and these fancy Banners. <br />Click on 'Source' in the top right to checkout the code behind this.</div>
-//TODO
+const initialMessage = <div>Welcome to BallIsLife</div>
 
 const banners = (state = [{'message': initialMessage, 'type': 'alert-info'}], action) => {
     switch (action.type) {

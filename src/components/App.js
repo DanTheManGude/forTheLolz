@@ -47,8 +47,7 @@ class App extends Component {
         <div className="container default">
           <div className="row">
             <div className="col-lg-12 intro">
-              <h2 id="title" className="mt-5">React-Boilerplate</h2>
-              {/*TODO*/}
+              <h2 id="title" className="mt-5">forTheLolz</h2>
               <Banner />
             </div>
           </div>
