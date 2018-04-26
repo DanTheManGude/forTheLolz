@@ -9,16 +9,16 @@ export function GoogleLogin(){
     //Google login
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function(result) {
-        var message = "Successfully logged in. Welcome " + result.user.email;
-        store.dispatch({
-            type: 'ADD_BANNER',
-            message: message,
-            'kind': 'alert-success'
-        });
         store.dispatch({
             type: 'UPDATE_USER',
-            user: result.user.email
+            email: result.user.email
         });
+        var message = "Welcome " + result.user.email + " you are " + store.getState().currentUser.status;
+            store.dispatch({
+                type: 'ADD_BANNER',
+                message: message,
+                'kind': 'alert-warning'
+            });
     }).catch(function(error) {
         store.dispatch({
             type: 'ADD_BANNER',
