@@ -1,8 +1,8 @@
 export const config = {
-    apiKey: "AIzaSyDKIP_f-Wvz_Ygiag1GHlPAZvDaUmAJ4qs",
-    authDomain: "boilerplate-stock.firebaseapp.com",
-    databaseURL: "https://boilerplate-stock.firebaseio.com",
-    projectId: "boilerplate-stock",
-    storageBucket: "boilerplate-stock.appspot.com",
-    messagingSenderId: "91478597384"
+    apiKey: "AIzaSyAG1Lp6TB3ImdVRU99TkpX8ogYZAqOg3M8",
+    authDomain: "pep-band-gude.firebaseapp.com",
+    databaseURL: "https://pep-band-gude.firebaseio.com",
+    projectId: "pep-band-gude",
+    storageBucket: "pep-band-gude.appspot.com",
+    messagingSenderId: "409446526814"
 };
